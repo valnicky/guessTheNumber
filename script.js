@@ -41,11 +41,13 @@ function displayResult(numberGuess){
 }
 
 /**
- * Initialize a new game by resetting all values and content on the page
- * HINT: reset the correctNumber, guesses, and HTML content
+ reset the correctNumber, result display, guesses, and HTML history content
  */
 function initGame() {
-  // *CODE GOES BELOW HERE *
+    correctNumber = getRandomNumber();
+    document.getElementById("result").innerHTML = "";
+  guesses = [];
+  displayHistory();
 }
 
 /**
@@ -55,10 +57,6 @@ function resetResultContent() {
   document.getElementById("result").innerHTML = "";
 }
 
-/**
- * Return a random number between 1 and 100
- * HINT: Use Math.random
- */
 function getRandomNumber() {
    let correctNumber = Math.floor(Math.random() * 100) + 1;
    
@@ -69,14 +67,6 @@ function saveGuessHistory(guess) {
   guesses.push(guess);
 }
 
-/**
- * Display guess history to user
- * HTML TO USE:
- * <ul class='list-group'>
- *  <li class='list-group-item'>You guessed {number}</li
- * </ul>
- * HINT: use while loop and string concatentation to create a list of guesses
- */
 function displayHistory() {
   let index = 0; 
   let list = "<ul class='list-group'>";
@@ -89,9 +79,6 @@ function displayHistory() {
   document.getElementById("history").innerHTML = list;
 }
 
-/**
- * Retrieve the dialog based on if the guess is wrong or correct
- */
 function getDialog(dialogType, text) {
   let dialog;
   switch (dialogType) {
