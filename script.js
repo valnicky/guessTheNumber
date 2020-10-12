@@ -26,7 +26,7 @@ function playGame() {
   let numberGuess = document.getElementById('number-guess').value;
  displayResult(numberGuess);
  saveGuessHistory(numberGuess);
- 
+ displayHistory();
 }
 
 function displayResult(numberGuess){
@@ -78,9 +78,13 @@ function saveGuessHistory(guess) {
  * HINT: use while loop and string concatentation to create a list of guesses
  */
 function displayHistory() {
-  let index; // TODO
+  let index = 0; 
   let list = "<ul class='list-group'>";
-  // *CODE GOES BELOW HERE *
+  
+  while(index < guesses.length){
+      list += `<li class='list-group-item'>You guessed ${guesses[index]} </li>`;
+      index++;
+  }
   list += "</ul>";
   document.getElementById("history").innerHTML = list;
 }
